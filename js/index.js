@@ -50,6 +50,7 @@ function animate() {
 			if (hearts === 0) {
 				// GAME OVER
 				console.log("game over");
+
 				cancelAnimationFrame(animationId);
 			}
 		}
