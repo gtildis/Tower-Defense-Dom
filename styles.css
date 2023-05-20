@@ -1,0 +1,50 @@
+/** @format */
+
+#game-background {
+	margin: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1280px;
+	height: 768px;
+	background-color: white;
+	background-image: url("./img/game-map.png");
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+.enemy {
+	background-image: url("./img/game-map.png");
+
+	position: absolute;
+	border-radius: 50%;
+	z-index: 1;
+	/* Removed duplicate 'position: relative;' */
+}
+
+.health-bar {
+	height: 10px;
+	background-color: green;
+	z-index: 1;
+	/* Removed duplicate 'position: relative;' */
+}
+
+.bullet {
+	position: absolute;
+	border-radius: 50%;
+	width: 5px;
+	height: 5px;
+	z-index: 1;
+}
+
+#score-table {
+	position: absolute;
+	z-index: 1;
+	/* Removed duplicate 'position: relative;' */
+}
+.tower-placement {
+	position: absolute;
+}
+.tower-active {
+	position: absolute;
+}
