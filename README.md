@@ -18,9 +18,9 @@
 [x] Health Bars
 [x] Gold  
 [x] Hearts  
-[?] Game over??
-[?] Waves?
-[] Resources
+[x] Waves
+[x] Game over
+[x] Resources
 [] Sprites
 [] Launch
 [] README file
@@ -29,6 +29,7 @@
 
 [] Levels (ideally 5-6)
 [] Bosses
+[] Modal window instructions
 [] Flying enemies
 [] Upgrade towers
 [] Better UX

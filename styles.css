@@ -2,6 +2,7 @@
 
 #game-background {
 	margin: 0;
+	font-family: "Press Start 2P", cursive;
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -40,6 +41,13 @@
 #score-table {
 	position: absolute;
 	z-index: 1;
+	width: 175px;
+	height: 145px;
+	right: 20px;
+	top: 20px;
+	background-color: rgba(255, 255, 255, 0.3);
+	color: black;
+	border: 2px solid black;
 	/* Removed duplicate 'position: relative;' */
 }
 .tower-placement {
@@ -47,4 +55,45 @@
 }
 .tower-active {
 	position: absolute;
+}
+
+#game-over {
+	left: 33%;
+	top: 33%;
+	display: flex;
+	flex-direction: column;
+	font-size: 27px;
+	color: white;
+	position: absolute;
+	align-items: center;
+	-webkit-text-stroke: 2px black;
+}
+
+#game-over a {
+	color: white;
+	-webkit-text-stroke: 2px black;
+	text-decoration: none;
+}
+
+.hidden {
+	display: none;
+}
+.hearts {
+	color: red;
+	font-size: 33px;
+	letter-spacing: -15px;
+}
+
+#hearts-containers,
+#gold-containers {
+	color: black;
+	font-size: 24px;
+	padding: 2px;
+}
+
+#gold-container {
+	display: inline-block;
+	font-size: 24px;
+	color: gold;
+	-webkit-text-stroke: 0.5px black;
 }

@@ -13,7 +13,7 @@ for (let i = 0; i < placementTilesData.length; i += 20) {
 }
 const placementTiles = [];
 
-//adding a building placement tile //11
+// adding a building placement tile //11
 placementTilesData2D.forEach((row, y) => {
 	row.forEach((symbol, x) => {
 		if (symbol === 276) {
@@ -31,6 +31,7 @@ placementTilesData2D.forEach((row, y) => {
 	});
 });
 
+// Animation condition
 function animate() {
 	const animationId = requestAnimationFrame(animate);
 
@@ -44,12 +45,39 @@ function animate() {
 		if (enemy.position.y > 820) {
 			hearts -= 1;
 
+			const heartsClass = document.getElementsByClassName("hearts");
+			let lastHeartIndex = heartsClass.length - 1;
+
+			// for hearts elements loop their index
+			for (let i = lastHeartIndex; i >= 0; i--) {
+				let heart = heartsClass[i]; // take the specific one
+
+				/// MAYBE here i will change that to toggle with another icon in the future that represent a broken heart
+				if (!heart.classList.contains("hidden")) {
+					heart.classList.add("hidden");
+					break;
+				}
+			}
+
 			enemies.splice(i, 1); // Remove the enemy from the array
 			enemy.element.remove();
+			if (enemies.length === 0) {
+				enemyCount += 2;
+				spawnEnemies(enemyCount);
+			}
 
+			//////   game over
 			if (hearts === 0) {
-				// GAME OVER
-				console.log("game over");
+				hearts = 0;
+
+				const gameOverDiv = document.createElement("div");
+				gameOverDiv.innerHTML = `
+				<div id="game-over">
+					<h1>GAME OVER</h1>
+					<a href="index.html">Play again</a>
+				</div>
+		`;
+				gameBackground.appendChild(gameOverDiv);
 
 				cancelAnimationFrame(animationId);
 			}
@@ -110,7 +138,7 @@ function animate() {
 			}
 		}
 		if (enemies.length === 0) {
-			enemies.bounty += 2;
+			// enemies.bounty += 2;
 			enemyCount += 2;
 			spawnEnemies(enemyCount);
 		}
@@ -151,15 +179,8 @@ let enemyCount = 3;
 function displayGold() {
 	const scoreTable = document.getElementById("score-table");
 
-	//maybe i will change that to CSS
-	scoreTable.style.width = 180 + "px";
-	scoreTable.style.height = 110 + "px";
-	scoreTable.style.left = 1100 + "px";
-	scoreTable.style.top = 20 + "px";
-	scoreTable.style.backgroundColor = "rgba(255,255,255,0.3)";
-	scoreTable.style.color = "black";
-	scoreTable.innerHTML = `Gold: ${totalGold}
-													Hearts: ${hearts}	`;
+	const goldTable = document.getElementById("gold-container");
+	goldTable.innerText = `${totalGold}`;
 }
 
 const mouse = {
