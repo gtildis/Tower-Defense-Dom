@@ -22,7 +22,8 @@
 [x] Game over
 [x] Resources
 [x] Sprites
-[] Need to fix healthbar
+[x] Need to fix healthbar
+[x] Win
 [] Launch
 [] README file
 

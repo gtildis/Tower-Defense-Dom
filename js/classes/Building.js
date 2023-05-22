@@ -11,7 +11,7 @@ class Building {
 		};
 		this.towerPrice = 2; /// price of tower
 		this.projectiles = []; /// array of bullets
-		this.radius = 250; /// range collidition
+		this.radius = 250; /// range collision
 		this.target;
 		this.frames = 0;
 	}

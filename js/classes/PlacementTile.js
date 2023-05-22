@@ -8,7 +8,7 @@ class PlacementTile {
 		this.width = 64;
 		this.height = 64;
 		this.size = 64; /// based on tiled map setup
-		this.color = "rgba(0,0,255,0.1)"; //// we make them darker
+		this.color = ""; //// we make them darker
 		this.occupied = false;
 		this.draw();
 	}
@@ -29,7 +29,7 @@ class PlacementTile {
 	update(mouse) {
 		//// we render them
 
-		///if we hover with collidition
+		///if we hover
 		if (
 			mouse.x > this.position.x &&
 			mouse.x < this.position.x + this.size &&
@@ -37,7 +37,8 @@ class PlacementTile {
 			mouse.y < this.position.y + this.size
 		) {
 			// color white over hover
-			this.color = "white";
-		} else this.color = "rgba(255,255,255,0.2)";
+
+			this.color = "rgba(255,255,255)";
+		} else this.color = "rgba(255,0,210,0.1)";
 	}
 }

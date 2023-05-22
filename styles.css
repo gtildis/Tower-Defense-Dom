@@ -16,14 +16,10 @@
 
 .enemy {
 	position: absolute;
-
 	border-radius: 50%;
 	background-image: url("./img/WarriorRightWalk.png");
-
 	margin: 0 auto;
-
 	animation: walk 0.8s steps(8) infinite;
-
 	z-index: 1;
 }
 
@@ -45,9 +41,7 @@
 .bullet {
 	background-image: url("./img/fireball-small.png");
 	background-size: cover;
-
 	background-repeat: no-repeat;
-
 	position: absolute;
 	border-radius: 50%;
 	width: 14px;
@@ -76,7 +70,8 @@
 	z-index: 3;
 }
 
-#game-over {
+#game-over,
+#you-win {
 	left: 33%;
 	top: 33%;
 	display: flex;
@@ -89,7 +84,8 @@
 	z-index: 50;
 }
 
-#game-over a {
+#game-over a,
+#you-win a {
 	color: white;
 	-webkit-text-stroke: 2px black;
 	text-decoration: none;
@@ -117,4 +113,8 @@
 	font-size: 24px;
 	color: gold;
 	-webkit-text-stroke: 0.5px black;
+}
+
+.square {
+	display: none;
 }

@@ -6,8 +6,11 @@ const enemies = [];
 const projectileElms = document.getElementsByClassName("bullet");
 let hearts = 5;
 let totalGold = 50;
+let countWave = 0;
 
-/// looping through the array so we can have 20 symbols for its row
+/***********************************Placing the tiles on the map************************ */
+/***********************************Placing the tiles on the map************************ */
+
 for (let i = 0; i < placementTilesData.length; i += 20) {
 	placementTilesData2D.push(placementTilesData.slice(i, i + 20));
 }
@@ -34,7 +37,7 @@ placementTilesData2D.forEach((row, y) => {
 // Animation condition
 function animate() {
 	const animationId = requestAnimationFrame(animate);
-
+	checkIfWin(animationId);
 	displayGold();
 
 	for (let i = enemies.length - 1; i >= 0; i--) {
@@ -64,6 +67,8 @@ function animate() {
 			if (enemies.length === 0) {
 				enemyCount += 2;
 				spawnEnemies(enemyCount);
+				countWave++;
+				console.log(countWave);
 			}
 
 			//////   game over
@@ -72,11 +77,11 @@ function animate() {
 
 				const gameOverDiv = document.createElement("div");
 				gameOverDiv.innerHTML = `
-				<div id="game-over">
-					<h1>GAME OVER</h1>
-					<a href="index.html">Play again</a>
-				</div>
-		`;
+					<div id="game-over">
+						<h1>GAME OVER</h1>
+						<a href="index.html">Play again</a>
+					</div>
+				`;
 				gameBackground.appendChild(gameOverDiv);
 
 				cancelAnimationFrame(animationId);
@@ -141,6 +146,8 @@ function animate() {
 			// enemies.bounty += 2;
 			enemyCount += 2;
 			spawnEnemies(enemyCount);
+			countWave++;
+			console.log(countWave);
 		}
 	});
 }
@@ -150,7 +157,9 @@ gameBackground.onload = () => {
 	animate(); // activating the functionallity of the map
 };
 
-///// Spawning the enemies
+/***********************************Spawn the enemies************************ */
+/***********************************Spawn the enemies************************ */
+
 function spawnEnemies(spawnCount) {
 	for (let i = 1; i < spawnCount + 1; i++) {
 		const xOffset = i * 150;
@@ -175,13 +184,36 @@ const buildings = [];
 let activeTile = undefined;
 let enemyCount = 3;
 
-//////// display the gold
+/***********************************Check if winnin************************ */
+/***********************************Check if winnin************************ */
+
+const checkIfWin = function (animationId) {
+	if (countWave === 5) {
+		const youWinDiv = document.createElement("div");
+		youWinDiv.innerHTML = `
+				<div id="you-win">
+					<h1>You Win</h1>
+					<a href="index.html">Play again</a>
+				</div>
+		`;
+		gameBackground.appendChild(youWinDiv);
+		cancelAnimationFrame(animationId);
+	}
+};
+
+/***********************************display the gold************************ */
 function displayGold() {
 	const scoreTable = document.getElementById("score-table");
 
 	const goldTable = document.getElementById("gold-container");
 	goldTable.innerText = `${totalGold}`;
 }
+
+/************************************************************
+ *          																								  *
+ *    					EVENT LISTENERS											          *
+ *                             								              *
+ *************************************************************/
 
 const mouse = {
 	x: undefined,
@@ -216,14 +248,24 @@ window.addEventListener("mousemove", (event) => {
 	for (let i = 0; i < placementTiles.length; i++) {
 		///for each tile placement CHECK if it is available to build
 		const tile = placementTiles[i]; ////this are the active placements
+
 		if (
-			// if mouse collision
+			// if mouse
 			mouse.x > tile.position.x &&
 			mouse.x < tile.position.x + tile.size &&
 			mouse.y > tile.position.y &&
 			mouse.y < tile.position.y + tile.size
 		) {
+			// const square = document.getElementById("square");
+
+			// square.style.left = tile.position.x;
+			// square.style.top = tile.position.y;
+			// square.style.width = 64 + "px";
+			// square.style.height = 64 + "px";
+			// square.style.backgroundColor = "blue";
+
 			activeTile = tile;
+
 			break;
 		}
 	}

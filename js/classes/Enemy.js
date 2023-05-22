@@ -69,7 +69,7 @@ class Enemy {
 		this.element.style.left = this.position.x + "px";
 		this.element.style.top = this.position.y + "px";
 		// Update the width of the health bar based on the enemy's health
-		this.healthBar.style.width = (this.width * this.health) / 100 + "px";
+		this.healthBar.style.width = (this.width * this.health) / 100 / 2 + "px";
 
 		if (
 			Math.abs(Math.round(this.center.x) - Math.round(waypoint.x)) <
