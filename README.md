@@ -24,10 +24,11 @@
 [x] Sprites
 [x] Need to fix healthbar
 [x] Win
+[x] Refactoring
 [] Launch
 [] README file
 
-### Extra
+## Extra
 
 [] Levels (ideally 5-6)
 [] Bosses

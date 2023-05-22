@@ -1,4 +1,6 @@
 /** @format */
+
+/** @format */
 const gameBackground = document.getElementById("game-background");
 
 const placementTilesData2D = [];
@@ -7,6 +9,7 @@ const projectileElms = document.getElementsByClassName("bullet");
 let hearts = 5;
 let totalGold = 50;
 let countWave = 0;
+const placementTiles = [];
 
 /***********************************Placing the tiles on the map************************ */
 /***********************************Placing the tiles on the map************************ */
@@ -14,7 +17,6 @@ let countWave = 0;
 for (let i = 0; i < placementTilesData.length; i += 20) {
 	placementTilesData2D.push(placementTilesData.slice(i, i + 20));
 }
-const placementTiles = [];
 
 // adding a building placement tile //11
 placementTilesData2D.forEach((row, y) => {
