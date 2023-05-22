@@ -15,26 +15,43 @@
 }
 
 .enemy {
-	background-image: url("./img/game-map.png");
-
 	position: absolute;
+
 	border-radius: 50%;
+	background-image: url("./img/WarriorRightWalk.png");
+
+	margin: 0 auto;
+
+	animation: walk 0.8s steps(8) infinite;
+
 	z-index: 1;
-	/* Removed duplicate 'position: relative;' */
+}
+
+@keyframes walk {
+	0% {
+		background-position: 0px;
+	}
+	100% {
+		background-position: -384px;
+	}
 }
 
 .health-bar {
 	height: 10px;
 	background-color: green;
 	z-index: 1;
-	/* Removed duplicate 'position: relative;' */
 }
 
 .bullet {
+	background-image: url("./img/fireball-small.png");
+	background-size: cover;
+
+	background-repeat: no-repeat;
+
 	position: absolute;
 	border-radius: 50%;
-	width: 5px;
-	height: 5px;
+	width: 14px;
+	height: 14px;
 	z-index: 1;
 }
 
@@ -48,13 +65,15 @@
 	background-color: rgba(255, 255, 255, 0.3);
 	color: black;
 	border: 2px solid black;
-	/* Removed duplicate 'position: relative;' */
 }
 .tower-placement {
 	position: absolute;
 }
 .tower-active {
 	position: absolute;
+	background-image: url(./img/Tower-basic.png);
+	background-size: cover;
+	z-index: 3;
 }
 
 #game-over {
@@ -67,12 +86,14 @@
 	position: absolute;
 	align-items: center;
 	-webkit-text-stroke: 2px black;
+	z-index: 50;
 }
 
 #game-over a {
 	color: white;
 	-webkit-text-stroke: 2px black;
 	text-decoration: none;
+	z-index: 50;
 }
 
 .hidden {

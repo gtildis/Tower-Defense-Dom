@@ -2,15 +2,15 @@
 
 ### Tower Defense Game
 
-## TO DO
+# TO DO
 
-# Map Creation
+## Map Creation
 
 [x] level 1 Assets
 [x] level 1 Create a Path
 [x] Map Details
 
-# Tower Defense Basic Functionality
+### Tower Defense Basic Functionality
 
 [x] Project Setup
 [x] Pathfinding
@@ -21,11 +21,12 @@
 [x] Waves
 [x] Game over
 [x] Resources
-[] Sprites
+[x] Sprites
+[] Need to fix healthbar
 [] Launch
 [] README file
 
-# Extra
+### Extra
 
 [] Levels (ideally 5-6)
 [] Bosses
