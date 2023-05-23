@@ -1,17 +1,16 @@
 /** @format */
-// let levels = 1;
-const winDiv = document.querySelector("#you-win");
-class Game {
+
+class GameLvlTwo {
 	constructor() {
 		this.gameBackground = document.getElementById("game-background");
-		this.gameBackground.style.backgroundImage = "url('./img/game-map.png')";
+		this.gameBackground.style.backgroundImage = "url('./img/game-map2.png')";
 
 		this.placementTilesData2D = [];
 		this.enemies = [];
 
 		this.projectileElms = document.getElementsByClassName("bullet");
 		this.hearts = 5;
-		this.totalGold = 50;
+		this.totalGold = 150;
 		this.countWave = 0;
 		this.placementTiles = [];
 		this.buildings = [];
@@ -32,11 +31,11 @@ class Game {
 		this.gameBackground.onload = () => {
 			this.animate();
 		};
-		this.availablePlacing(placementTilesData[0]);
+		this.availablePlacing(placementTilesData[1]);
 
 		this.eventListeners(this.gameBackground);
 
-		this.spawnEnemies(1); ///initial 3
+		this.spawnEnemies(6); ///initial 3
 	}
 
 	availablePlacing(placementTilesData) {
@@ -218,7 +217,8 @@ class Game {
 			const xOffset = i * 150;
 			this.enemies.push(
 				new Enemy({
-					position: { x: waypoints[0][0].x - xOffset, y: waypoints[0][0].y },
+					position: { x: waypoints[1][0].x - xOffset, y: waypoints[1][0].y },
+					wayPath: 1,
 				})
 			);
 		}
