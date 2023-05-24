@@ -25,17 +25,18 @@
 [x] Need to fix healthbar
 [x] Win
 [x] Refactoring
-[] Launch
+[x] Launch
 [] README file
 
 ## Extra
 
 [x?] Levels (ideally 5-6)
 ----[x] Level 2
-[] Bosses
 ----[x] Added Zombie
-[] Make Level three with hounds and upgrade Towers
-[] Modal window instructions
+[x] Make Level three
+[] with hounds and upgrade Towers
+[x] Modal window instructions
+[] Bosses
 [] Flying enemies
-[] Upgrade towers
+
 [] Better UX

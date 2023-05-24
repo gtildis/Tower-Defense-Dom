@@ -36,7 +36,7 @@ class GameLvlTwo {
 
 		this.eventListeners(this.gameBackground);
 
-		this.spawnEnemies(6);
+		this.spawnEnemies(5);
 		this.spawnZombie(3);
 	}
 
@@ -147,10 +147,13 @@ class GameLvlTwo {
 					gameOverDiv.innerHTML = `
             <div id="game-over">
               <h1>GAME OVER</h1>
-              <a href="index.html">Play again</a>
+              <a id='play-again' href="index.html">Play again</a>
             </div>
           `;
 					this.gameBackground.appendChild(gameOverDiv);
+
+					localStorage.clear();
+					localStorage.removeItem("levels");
 					cancelAnimationFrame(animationId);
 				}
 			}
@@ -213,7 +216,7 @@ class GameLvlTwo {
 			}
 		});
 	}
-
+	////////////////////////////////////////////////////
 	spawnEnemies(spawnCount) {
 		for (let i = 1; i < spawnCount + 1; i++) {
 			const xOffset = i * 150;
@@ -226,6 +229,7 @@ class GameLvlTwo {
 		}
 	}
 
+	//////////////////////////////////////////////////////////////////
 	spawnZombie(spawnCount) {
 		for (let i = 1; i < spawnCount + 1; i++) {
 			const xOffset = i * 130;
@@ -237,9 +241,9 @@ class GameLvlTwo {
 			);
 		}
 	}
-
+	/////////////////////////////////////////////////////////////////////
 	checkIfWin(animationId) {
-		if (this.countWave === 3) {
+		if (this.countWave === 4) {
 			winDiv.style.display = "flex";
 			let currentLevel = +localStorage.getItem("levels");
 			currentLevel++;
@@ -247,10 +251,12 @@ class GameLvlTwo {
 
 			document.querySelector("#play-again").addEventListener("click", () => {
 				localStorage.clear();
+				localStorage.removeItem("levels");
 			});
 
-			document.querySelector("#next-lvl-btn").style.display = "none";
-			// 	.addEventListener("click", checkLevel);
+			document
+				.querySelector("#next-lvl-btn")
+				.addEventListener("click", checkLevel);
 
 			cancelAnimationFrame(animationId);
 		}

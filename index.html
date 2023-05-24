@@ -47,17 +47,41 @@
 				<!-- <div id="square"></div> -->
 			</div>
 		</div>
+
 		<div id="you-win">
 			<h1>You Win</h1>
 			<a href="index.html" id="play-again">Play again</a>
 
 			<a href="index.html" id="next-lvl-btn">Next Level</a>
 		</div>
+
+		<button id="instructions" class="open-modal-btn">How to play</button>
+
+		<div id="overlay">
+			<div id="modal">
+				<div class="modal-header">
+					<div class="modal-title">How to Play</div>
+					<button class="close-modal-btn">&times;</button>
+				</div>
+				<div class="modal-body">
+					<p>
+						Try to kill the enemies before they reach the Gate of the
+						Village.<br /><br />
+						You can build towers to prevent the attack.<br /><br />
+						Towers can be built on the available spots of the land and cost 10
+						gold.<br /><br />
+						Each time you kill an enemy, you collect their bounty!
+					</p>
+				</div>
+			</div>
+		</div>
+
 		<script src="./js/placementTower.js"></script>
 		<script src="./js/classes/Game.js"></script>
 		<script src="./js/classes/GameLvlTwo.js"></script>
+		<script src="./js/classes/GameLvlThree.js"></script>
 		<script src="./js/waypoints.js"></script>
-		<script src="./js/waypoints2.js"></script>
+
 		<script src="./js/classes.js"></script>
 		<script src="./js/classes/Projectile.js"></script>
 		<script src="./js/classes/Building.js"></script>

@@ -1,24 +1,21 @@
 /** @format */
-// let levels = 1;
-const winDiv = document.querySelector("#you-win");
-class Game {
+
+class GameLvlThree {
 	constructor() {
 		this.gameBackground = document.getElementById("game-background");
-		this.gameBackground.style.backgroundImage = "url('./img/game-map.png')";
-		this.animationId; ///////
-		this.isAnimationPaused = false;
+		this.gameBackground.style.backgroundImage = "url('./img/game-map3.png')";
 
 		this.placementTilesData2D = [];
 		this.enemies = [];
 
 		this.projectileElms = document.getElementsByClassName("bullet");
 		this.hearts = 5;
-		this.totalGold = 50;
+		this.totalGold = 250;
 		this.countWave = 0;
 		this.placementTiles = [];
 		this.buildings = [];
 		this.activeTile = undefined;
-		this.enemyCount = 3;
+		this.enemyCount = 5;
 
 		this.mouse = {
 			x: undefined,
@@ -27,6 +24,7 @@ class Game {
 
 		this.animate = this.animate.bind(this);
 		this.spawnEnemies = this.spawnEnemies.bind(this);
+		this.spawnZombie = this.spawnZombie.bind(this);
 		this.checkIfWin = this.checkIfWin.bind(this);
 		this.eventListeners = this.eventListeners.bind(this);
 		this.availablePlacing = this.availablePlacing.bind(this);
@@ -34,11 +32,12 @@ class Game {
 		this.gameBackground.onload = () => {
 			this.animate();
 		};
-		this.availablePlacing(placementTilesData[0]);
+		this.availablePlacing(placementTilesData[2]);
 
 		this.eventListeners(this.gameBackground);
-		///////////////////////////////////////////////////////////////////////////////////
-		this.spawnEnemies(3); ///initial 5
+
+		this.spawnEnemies(12);
+		this.spawnZombie(5);
 	}
 
 	availablePlacing(placementTilesData) {
@@ -119,7 +118,7 @@ class Game {
 			const enemy = this.enemies[i];
 			enemy.update();
 
-			if (enemy.position.y > 820) {
+			if (enemy.position.y < -110) {
 				this.hearts -= 1;
 				const heartsClass = document.getElementsByClassName("hearts");
 				let lastHeartIndex = heartsClass.length - 1;
@@ -139,7 +138,7 @@ class Game {
 					this.enemyCount += 2;
 					this.spawnEnemies(this.enemyCount);
 					this.countWave++;
-					console.log(this.countWave);
+					// console.log(this.countWave);
 				}
 
 				if (this.hearts === 0) {
@@ -148,11 +147,14 @@ class Game {
 					gameOverDiv.innerHTML = `
             <div id="game-over">
               <h1>GAME OVER</h1>
-              <a href="index.html">Play again</a>
+              <a id='play-again' href="index.html">Play again</a>
             </div>
           `;
 					this.gameBackground.appendChild(gameOverDiv);
 					cancelAnimationFrame(animationId);
+
+					localStorage.clear();
+					localStorage.removeItem("levels");
 				}
 			}
 		}
@@ -192,13 +194,13 @@ class Game {
 						});
 
 						if (enemyIndex > -1) {
+							this.totalGold += projectile.enemy.bounty;
 							const enemyElements = document.getElementsByClassName("enemy");
 							if (enemyElements.length > enemyIndex) {
 								const enemyElement = enemyElements[enemyIndex];
 								enemyElement.remove();
 								this.enemies.splice(enemyIndex, 1);
 							}
-							this.totalGold += projectile.enemy.bounty;
 						}
 					}
 					projectileElm.remove();
@@ -207,10 +209,10 @@ class Game {
 			}
 
 			if (this.enemies.length === 0) {
-				this.enemyCount += 2;
+				this.enemyCount += 5;
 				this.spawnEnemies(this.enemyCount);
+				this.spawnZombie(this.enemyCount);
 				this.countWave++;
-				console.log(this.countWave);
 			}
 		});
 	}
@@ -220,14 +222,27 @@ class Game {
 			const xOffset = i * 150;
 			this.enemies.push(
 				new Enemy({
-					position: { x: waypoints[0][0].x - xOffset, y: waypoints[0][0].y },
+					position: { x: waypoints[2][0].x - xOffset, y: waypoints[2][0].y },
+					wayPath: 2,
 				})
 			);
 		}
 	}
-	/////////////////////////////////////////////////////////////////////////////////////
+
+	spawnZombie(spawnCount) {
+		for (let i = 1; i < spawnCount + 1; i++) {
+			const xOffset = i * 130;
+			this.enemies.push(
+				new Zombie({
+					position: { x: waypoints[2][0].x - xOffset, y: waypoints[1][0].y },
+					wayPath: 2,
+				})
+			);
+		}
+	}
+
 	checkIfWin(animationId) {
-		if (this.countWave === 5) {
+		if (this.countWave === 3) {
 			winDiv.style.display = "flex";
 			let currentLevel = +localStorage.getItem("levels");
 			currentLevel++;
@@ -237,9 +252,8 @@ class Game {
 				localStorage.clear();
 			});
 
-			document
-				.querySelector("#next-lvl-btn")
-				.addEventListener("click", checkLevel);
+			document.querySelector("#next-lvl-btn").style.display = "none";
+			// 	.addEventListener("click", checkLevel);
 
 			cancelAnimationFrame(animationId);
 		}

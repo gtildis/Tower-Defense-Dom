@@ -7,7 +7,23 @@ function storeLevel() {
 		localStorage.setItem("levels", levels);
 	}
 }
+1;
 storeLevel();
+
+const openModalButton = document.querySelector(".open-modal-btn");
+const closeModalButton = document.querySelector(".close-modal-btn");
+const overlay = document.getElementById("overlay");
+const modal = document.getElementById("modal");
+
+openModalButton.addEventListener("click", (e) => {
+	overlay.classList.add("active");
+	modal.classList.add("active");
+});
+
+closeModalButton.addEventListener("click", (e) => {
+	overlay.classList.remove("active");
+	modal.classList.remove("active");
+});
 
 console.log("level 😎", levels);
 function checkLevel() {
@@ -16,10 +32,14 @@ function checkLevel() {
 		const game = new Game();
 	} else if (levels === "2") {
 		winDiv.style.display = "none";
-
 		const game2 = new GameLvlTwo();
-	} else if (levels !== "1" || levels !== "2") {
+	} else if (levels === "3") {
+		winDiv.style.display = "none";
+		const game3 = new GameLvlThree();
+	} else {
+		winDiv.style.display = "none";
 		const game = new Game();
 	}
 }
+
 checkLevel();
