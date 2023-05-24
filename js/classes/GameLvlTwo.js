@@ -10,7 +10,7 @@ class GameLvlTwo {
 
 		this.projectileElms = document.getElementsByClassName("bullet");
 		this.hearts = 5;
-		this.totalGold = 100;
+		this.totalGold = 150;
 		this.countWave = 0;
 		this.placementTiles = [];
 		this.buildings = [];
@@ -243,7 +243,7 @@ class GameLvlTwo {
 	}
 	/////////////////////////////////////////////////////////////////////
 	checkIfWin(animationId) {
-		if (this.countWave === 1) {
+		if (this.countWave === 4) {
 			winDiv.style.display = "flex";
 			let currentLevel = +localStorage.getItem("levels");
 			currentLevel++;

@@ -15,7 +15,7 @@ class Goblin {
 
 		this.radius = 45;
 		this.health = 2000;
-		this.bounty = 5;
+		this.bounty = 40;
 		this.velocity = {
 			x: 0,
 			y: 0,

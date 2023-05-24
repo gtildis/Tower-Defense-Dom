@@ -97,7 +97,7 @@
 	position: absolute;
 	align-items: center;
 	-webkit-text-stroke: 2px black;
-	z-index: 55;
+	z-index: 80;
 }
 
 #game-over a,
@@ -147,7 +147,7 @@
 
 	border: 5px solid rgba(255, 0, 255, 0.6);
 	border-radius: 10px;
-	z-index: 50;
+	z-index: 70;
 	background-color: rgba(255, 255, 255, 0.8);
 	width: 600px;
 }
