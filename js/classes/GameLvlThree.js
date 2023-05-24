@@ -36,8 +36,9 @@ class GameLvlThree {
 
 		this.eventListeners(this.gameBackground);
 
-		this.spawnEnemies(12);
-		this.spawnZombie(5);
+		this.spawnEnemies(5);
+		this.spawnZombie(3);
+		this.spawnGoblin(1);
 	}
 
 	availablePlacing(placementTilesData) {
@@ -118,7 +119,7 @@ class GameLvlThree {
 			const enemy = this.enemies[i];
 			enemy.update();
 
-			if (enemy.position.y < -110) {
+			if (enemy.position.y < -200) {
 				this.hearts -= 1;
 				const heartsClass = document.getElementsByClassName("hearts");
 				let lastHeartIndex = heartsClass.length - 1;
@@ -137,6 +138,9 @@ class GameLvlThree {
 				if (this.enemies.length === 0) {
 					this.enemyCount += 2;
 					this.spawnEnemies(this.enemyCount);
+					this.spawnZombie(this.enemyCount);
+					this.spawnGoblin(this.enemyCount - 5);
+
 					this.countWave++;
 					// console.log(this.countWave);
 				}
@@ -151,10 +155,10 @@ class GameLvlThree {
             </div>
           `;
 					this.gameBackground.appendChild(gameOverDiv);
-					cancelAnimationFrame(animationId);
 
 					localStorage.clear();
 					localStorage.removeItem("levels");
+					cancelAnimationFrame(animationId);
 				}
 			}
 		}
@@ -209,19 +213,33 @@ class GameLvlThree {
 			}
 
 			if (this.enemies.length === 0) {
-				this.enemyCount += 5;
+				this.enemyCount += 2;
 				this.spawnEnemies(this.enemyCount);
 				this.spawnZombie(this.enemyCount);
+				this.spawnGoblin(this.enemyCount - 5);
+
 				this.countWave++;
 			}
 		});
+	}
+
+	spawnGoblin(spawnCount) {
+		for (let i = 1; i < spawnCount + 1; i++) {
+			const xOffset = i * 150;
+			this.enemies.push(
+				new Goblin({
+					position: { x: waypoints[2][0].x - xOffset, y: waypoints[2][0].y },
+					wayPath: 2,
+				})
+			);
+		}
 	}
 
 	spawnEnemies(spawnCount) {
 		for (let i = 1; i < spawnCount + 1; i++) {
 			const xOffset = i * 150;
 			this.enemies.push(
-				new Enemy({
+				new Skeleton({
 					position: { x: waypoints[2][0].x - xOffset, y: waypoints[2][0].y },
 					wayPath: 2,
 				})

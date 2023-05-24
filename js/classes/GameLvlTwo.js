@@ -10,7 +10,7 @@ class GameLvlTwo {
 
 		this.projectileElms = document.getElementsByClassName("bullet");
 		this.hearts = 5;
-		this.totalGold = 150;
+		this.totalGold = 100;
 		this.countWave = 0;
 		this.placementTiles = [];
 		this.buildings = [];
@@ -36,8 +36,8 @@ class GameLvlTwo {
 
 		this.eventListeners(this.gameBackground);
 
-		this.spawnEnemies(5);
-		this.spawnZombie(3);
+		this.spawnEnemies(6);
+		this.spawnZombie(4);
 	}
 
 	availablePlacing(placementTilesData) {
@@ -243,7 +243,7 @@ class GameLvlTwo {
 	}
 	/////////////////////////////////////////////////////////////////////
 	checkIfWin(animationId) {
-		if (this.countWave === 4) {
+		if (this.countWave === 1) {
 			winDiv.style.display = "flex";
 			let currentLevel = +localStorage.getItem("levels");
 			currentLevel++;
