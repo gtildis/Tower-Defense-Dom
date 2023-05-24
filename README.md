@@ -34,6 +34,7 @@
 ----[x] Level 2
 [] Bosses
 ----[x] Added Zombie
+[] Make Level three with hounds and upgrade Towers
 [] Modal window instructions
 [] Flying enemies
 [] Upgrade towers
