@@ -14,10 +14,11 @@
 	background-position: 0 0;
 }
 
-.enemy {
+.enemy,
+.zombie {
 	position: absolute;
 	border-radius: 50%;
-	background-image: url("./img/WarriorRightWalk.png");
+	background-size: cover;
 	margin: 0 auto;
 	animation: walk 0.8s steps(8) infinite;
 	z-index: 1;

@@ -36,7 +36,7 @@ class Game {
 
 		this.eventListeners(this.gameBackground);
 
-		this.spawnEnemies(1); ///initial 3
+		this.spawnEnemies(4); ///initial 3
 	}
 
 	availablePlacing(placementTilesData) {
@@ -225,7 +225,7 @@ class Game {
 	}
 
 	checkIfWin(animationId) {
-		if (this.countWave === 1) {
+		if (this.countWave === 5) {
 			winDiv.style.display = "flex";
 			let currentLevel = +localStorage.getItem("levels");
 			currentLevel++;

@@ -1,7 +1,6 @@
 /** @format */
 
-/// this is the basic enemy and maybe dom done?
-class Enemy {
+class Zombie {
 	constructor({ position = { x: 0, y: 0 }, wayPath = 0 }) {
 		this.position = position;
 		this.width = 48;
@@ -14,9 +13,9 @@ class Enemy {
 			y: this.position.y + this.height / 2,
 		};
 
-		this.radius = 30;
-		this.health = 200;
-		this.bounty = 3;
+		this.radius = 45;
+		this.health = 400;
+		this.bounty = 5;
 		this.velocity = {
 			x: 0,
 			y: 0,
@@ -25,7 +24,8 @@ class Enemy {
 		// Create a new DOM element for the enemy
 		this.element = document.createElement("div");
 		this.element.classList.add("enemy");
-		this.element.style.backgroundImage = "url(./img/WarriorRightWalk.png)";
+		this.element.classList.add("zombie");
+		this.element.style.backgroundImage = "url(./img/PossesedRightWalk.png)";
 		this.element.style.left = this.position.x + "px";
 		this.element.style.top = this.position.y + "px";
 		this.element.style.height = this.height + "px";
@@ -54,7 +54,7 @@ class Enemy {
 		const xDistance = waypoint.x - this.center.x;
 		const angle = Math.atan2(yDistance, xDistance);
 
-		const speed = 2;
+		const speed = 1;
 
 		this.velocity.x = Math.cos(angle) * speed;
 		this.velocity.y = Math.sin(angle) * speed;
@@ -71,7 +71,7 @@ class Enemy {
 		this.element.style.left = this.position.x + "px";
 		this.element.style.top = this.position.y + "px";
 		// Update the width of the health bar based on the enemy's health
-		this.healthBar.style.width = (this.width * this.health) / 100 / 2 + "px";
+		this.healthBar.style.width = (this.width * this.health) / 100 / 4 + "px";
 
 		if (
 			Math.abs(Math.round(this.center.x) - Math.round(waypoint.x)) <

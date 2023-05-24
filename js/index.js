@@ -16,9 +16,9 @@ function checkLevel() {
 		const game = new Game();
 	} else if (levels === "2") {
 		winDiv.style.display = "none";
-		console.log("else if");
+
 		const game2 = new GameLvlTwo();
-	} else {
+	} else if (levels !== "1" || levels !== "2") {
 		const game = new Game();
 	}
 }

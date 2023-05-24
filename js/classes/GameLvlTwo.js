@@ -24,6 +24,7 @@ class GameLvlTwo {
 
 		this.animate = this.animate.bind(this);
 		this.spawnEnemies = this.spawnEnemies.bind(this);
+		this.spawnZombie = this.spawnZombie.bind(this);
 		this.checkIfWin = this.checkIfWin.bind(this);
 		this.eventListeners = this.eventListeners.bind(this);
 		this.availablePlacing = this.availablePlacing.bind(this);
@@ -35,7 +36,8 @@ class GameLvlTwo {
 
 		this.eventListeners(this.gameBackground);
 
-		this.spawnEnemies(6); ///initial 3
+		this.spawnEnemies(6);
+		this.spawnZombie(3);
 	}
 
 	availablePlacing(placementTilesData) {
@@ -116,7 +118,7 @@ class GameLvlTwo {
 			const enemy = this.enemies[i];
 			enemy.update();
 
-			if (enemy.position.y > 820) {
+			if (enemy.position.x > 1320) {
 				this.hearts -= 1;
 				const heartsClass = document.getElementsByClassName("hearts");
 				let lastHeartIndex = heartsClass.length - 1;
@@ -136,7 +138,7 @@ class GameLvlTwo {
 					this.enemyCount += 2;
 					this.spawnEnemies(this.enemyCount);
 					this.countWave++;
-					console.log(this.countWave);
+					// console.log(this.countWave);
 				}
 
 				if (this.hearts === 0) {
@@ -189,13 +191,13 @@ class GameLvlTwo {
 						});
 
 						if (enemyIndex > -1) {
+							this.totalGold += projectile.enemy.bounty;
 							const enemyElements = document.getElementsByClassName("enemy");
 							if (enemyElements.length > enemyIndex) {
 								const enemyElement = enemyElements[enemyIndex];
 								enemyElement.remove();
 								this.enemies.splice(enemyIndex, 1);
 							}
-							this.totalGold += projectile.enemy.bounty;
 						}
 					}
 					projectileElm.remove();
@@ -204,10 +206,10 @@ class GameLvlTwo {
 			}
 
 			if (this.enemies.length === 0) {
-				this.enemyCount += 2;
+				this.enemyCount += 5;
 				this.spawnEnemies(this.enemyCount);
+				this.spawnZombie(this.enemyCount);
 				this.countWave++;
-				console.log(this.countWave);
 			}
 		});
 	}
@@ -224,8 +226,20 @@ class GameLvlTwo {
 		}
 	}
 
+	spawnZombie(spawnCount) {
+		for (let i = 1; i < spawnCount + 1; i++) {
+			const xOffset = i * 130;
+			this.enemies.push(
+				new Zombie({
+					position: { x: waypoints[1][0].x - xOffset, y: waypoints[1][0].y },
+					wayPath: 1,
+				})
+			);
+		}
+	}
+
 	checkIfWin(animationId) {
-		if (this.countWave === 1) {
+		if (this.countWave === 3) {
 			winDiv.style.display = "flex";
 			let currentLevel = +localStorage.getItem("levels");
 			currentLevel++;
@@ -235,9 +249,8 @@ class GameLvlTwo {
 				localStorage.clear();
 			});
 
-			document
-				.querySelector("#next-lvl-btn")
-				.addEventListener("click", checkLevel);
+			document.querySelector("#next-lvl-btn").style.display = "none";
+			// 	.addEventListener("click", checkLevel);
 
 			cancelAnimationFrame(animationId);
 		}

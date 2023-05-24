@@ -30,8 +30,10 @@
 
 ## Extra
 
-[] Levels (ideally 5-6)
+[x?] Levels (ideally 5-6)
+----[x] Level 2
 [] Bosses
+----[x] Added Zombie
 [] Modal window instructions
 [] Flying enemies
 [] Upgrade towers

@@ -39,6 +39,5 @@ class Projectile {
 		this.element.style.top = this.position.y + "px";
 		this.element.style.width = this.width + "px";
 		this.element.style.height = this.height + "px";
-		this.element.style.backgroundColor = "black";
 	}
 }
