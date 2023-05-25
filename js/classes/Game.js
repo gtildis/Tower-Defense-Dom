@@ -1,5 +1,5 @@
 /** @format */
-// let levels = 1;
+
 const winDiv = document.querySelector("#you-win");
 class Game {
 	constructor() {
@@ -68,7 +68,6 @@ class Game {
 	}
 
 	eventListeners() {
-		/////if this button is click then
 		const activeTower = document.querySelector("#building-simple");
 		const activeUpgradeTower = document.querySelector("#building-frost");
 
@@ -98,9 +97,6 @@ class Game {
 				activateUpgradeTower();
 			}
 		});
-
-		//// isUpgrade building = true
-		/// else if
 
 		this.gameBackground.addEventListener("click", (event) => {
 			if (
@@ -158,6 +154,7 @@ class Game {
 					this.mouse.y < tile.position.y + tile.size
 				) {
 					this.activeTile = tile;
+
 					break;
 				}
 			}
@@ -203,10 +200,13 @@ class Game {
 					gameOverDiv.innerHTML = `
             <div id="game-over">
               <h1>GAME OVER</h1>
-              <a href="index.html">Play again</a>
+              <a id='play-again' href="index.html">Play again</a>
             </div>
           `;
 					this.gameBackground.appendChild(gameOverDiv);
+
+					localStorage.clear();
+					localStorage.removeItem("levels");
 					cancelAnimationFrame(animationId);
 				}
 			}
@@ -255,13 +255,13 @@ class Game {
 						});
 
 						if (enemyIndex > -1) {
+							this.totalGold += projectile.enemy.bounty;
 							const enemyElements = document.getElementsByClassName("enemy");
 							if (enemyElements.length > enemyIndex) {
 								const enemyElement = enemyElements[enemyIndex];
 								enemyElement.remove();
 								this.enemies.splice(enemyIndex, 1);
 							}
-							this.totalGold += projectile.enemy.bounty;
 						}
 					}
 					projectileElm.remove();
@@ -273,7 +273,6 @@ class Game {
 				this.enemyCount += 2;
 				this.spawnEnemies(this.enemyCount);
 				this.countWave++;
-				console.log(this.countWave);
 			}
 		});
 	}
@@ -290,7 +289,7 @@ class Game {
 	}
 	/////////////////////////////////////////////////////////////////////////////////////
 	checkIfWin(animationId) {
-		if (this.countWave === 4) {
+		if (this.countWave === 1) {
 			winDiv.style.display = "flex";
 			let currentLevel = +localStorage.getItem("levels");
 			currentLevel++;

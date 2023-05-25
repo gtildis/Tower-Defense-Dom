@@ -129,7 +129,7 @@
 	top: 20px;
 	background-color: rgba(255, 255, 255, 0.5);
 	color: black;
-	border: 5px solid rgba(255, 0, 255, 0.3);
+	border: 5px solid rgba(255, 0, 255, 0.6);
 	z-index: 50;
 }
 .tower-placement {
