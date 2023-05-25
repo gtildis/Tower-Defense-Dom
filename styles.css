@@ -8,10 +8,63 @@
 	top: 0;
 	width: 1280px;
 	height: 768px;
-	background-color: white;
+	background-color: gray;
 
 	background-repeat: no-repeat;
 	background-position: 0 0;
+	user-select: none;
+}
+
+#buildings-div {
+	position: absolute;
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	left: 1100px;
+	top: 650px;
+	width: 138px;
+	height: 70px;
+	border-radius: 10px;
+	border: 5px solid rgba(255, 0, 255, 0.6);
+
+	z-index: 70;
+}
+
+#building-simple {
+	left: 1132px;
+	top: 680px;
+	width: 64px;
+	height: 68px;
+	z-index: 71;
+
+	background-image: url(./img/Tower-basic22.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	/* border: 1px solid black; */
+}
+
+#building-frost {
+	left: 1236px;
+	top: 680px;
+	width: 64px;
+	height: 64px;
+	z-index: 71;
+	background-image: url(./img/Tower-frost.png);
+	padding: 2px;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	/* border: 1px solid black; */
+}
+.glow-button:hover {
+	box-shadow: 0 8px 20px rgba(255, 0, 255, 0.6);
+}
+
+.glow-button {
+	box-shadow: 0 10px 20px rgba(255, 0, 255, 0.6);
+	border: 2px dashed black;
 }
 
 .enemy,
@@ -60,6 +113,12 @@
 	z-index: 1;
 }
 
+.bullet-frost {
+	background-image: url(./img/frostball-small.png);
+	width: 18px;
+	height: 18px;
+}
+
 #score-table {
 	border-radius: 10px;
 	position: absolute;
@@ -79,10 +138,14 @@
 }
 .tower-active {
 	position: absolute;
-	background-image: url(./img/Tower-basic.png);
+	background-image: url(./img/Tower-basic2.png);
 	background-size: cover;
 
 	z-index: 3;
+}
+
+.frost {
+	background-image: url("./img/Tower-frost.png");
 }
 
 #game-over,

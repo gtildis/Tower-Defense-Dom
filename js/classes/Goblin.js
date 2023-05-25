@@ -6,7 +6,8 @@ class Goblin {
 		this.width = 400;
 		this.height = 400;
 		this.wayPath = wayPath;
-
+		this.speed = 0.8;
+		this.isNotAffectedByFrost = true;
 		this.waypointIndex = 0;
 		this.center = {
 			x: this.position.x + this.width / 2,
@@ -55,10 +56,8 @@ class Goblin {
 		const xDistance = waypoint.x - this.center.x;
 		const angle = Math.atan2(yDistance, xDistance);
 
-		const speed = 0.8;
-
-		this.velocity.x = Math.cos(angle) * speed;
-		this.velocity.y = Math.sin(angle) * speed;
+		this.velocity.x = Math.cos(angle) * this.speed;
+		this.velocity.y = Math.sin(angle) * this.speed;
 
 		this.position.x += this.velocity.x;
 		this.position.y += this.velocity.y;

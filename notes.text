@@ -12,3 +12,9 @@ index
 
 testing: spawn
 countwave
+
+
+if ((this.positionX + this.width < 3) || (this.positionX + this.width < 70) || (this.positionY + this.height > 100 ) ||(this.positionY + this.height < 5))
+      {
+        console.log('game over')
+      }

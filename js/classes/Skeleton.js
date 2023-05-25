@@ -6,6 +6,7 @@ class Skeleton {
 		this.width = 48;
 		this.height = 48;
 		this.wayPath = wayPath;
+		this.speed = 2;
 
 		this.waypointIndex = 0;
 		this.center = {
@@ -55,10 +56,8 @@ class Skeleton {
 		const xDistance = waypoint.x - this.center.x;
 		const angle = Math.atan2(yDistance, xDistance);
 
-		const speed = 2;
-
-		this.velocity.x = Math.cos(angle) * speed;
-		this.velocity.y = Math.sin(angle) * speed;
+		this.velocity.x = Math.cos(angle) * this.speed;
+		this.velocity.y = Math.sin(angle) * this.speed;
 
 		this.position.x += this.velocity.x;
 		this.position.y += this.velocity.y;

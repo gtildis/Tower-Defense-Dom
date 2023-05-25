@@ -59,7 +59,7 @@ Towers cost 10 gold. But don't worry each time you kill an enemy you collect the
 
 ### Improvements
 
-[] with and upgrade Towers <br>
+[x] with and upgrade Towers <br>
 [] Refactoring 2 <br>
 [] Better UX <br>
 
@@ -70,7 +70,5 @@ Towers cost 10 gold. But don't worry each time you kill an enemy you collect the
   ... Finished game <br>
 
 - [ ] Add sounds <br>
-
-- [ ] Animate player <br>
 
 - [ ] Animate Enemies better <br>
