@@ -15,7 +15,7 @@ class GameLvlTwo {
 
 		this.projectileElms = document.getElementsByClassName("bullet");
 		this.hearts = 5;
-		this.totalGold = 150;
+		this.totalGold = 100;
 		this.countWave = 0;
 		this.placementTiles = [];
 		this.buildings = [];

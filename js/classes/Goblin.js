@@ -5,6 +5,7 @@ class Goblin {
 		this.position = position;
 		this.width = 400;
 		this.height = 400;
+
 		this.wayPath = wayPath;
 		this.speed = 0.8;
 		this.isNotAffectedByFrost = true;

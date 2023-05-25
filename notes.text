@@ -18,3 +18,12 @@ if ((this.positionX + this.width < 3) || (this.positionX + this.width < 70) || (
       {
         console.log('game over')
       }
+
+
+window.addEventListener(keydown,(e)=>{
+  e key=== 0{
+    const game = new Game
+  }
+})
+
+if ()

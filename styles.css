@@ -204,18 +204,17 @@
 
 #modal {
 	position: absolute;
-	top: 33%;
-	left: 33%;
-	transform: translate(-20%, -20%) scale(0);
+	top: 30px;
+	left: 150px;
+
+	font-size: 12px;
 
 	border: 5px solid rgba(255, 0, 255, 0.6);
 	border-radius: 10px;
 	z-index: 70;
 	background-color: rgba(255, 255, 255, 0.8);
-	width: 600px;
-}
-#modal.active {
-	transform: translate(-20%, -20%) scale(1);
+	width: 850px;
+	height: 700px;
 }
 
 .modal-header {
@@ -233,14 +232,15 @@
 	border: none;
 	outline: none;
 	background: none;
-	font-size: 26px;
+	font-size: 20px;
 	font-weight: bold;
 }
 
 .modal-body {
 	padding: 10px 15px;
-	letter-spacing: 2px;
-	line-height: 1.2;
+	letter-spacing: 0.2px;
+	line-height: 1.5;
+	padding: 20px 60px 60px 60px;
 }
 
 #instructions {
@@ -253,9 +253,58 @@
 	z-index: 50;
 	border-radius: 10px;
 }
+.modal-icons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+.modal-icon-containers {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	height: 250px;
+}
+.modal-icon-container {
+	display: flex;
+
+	align-items: center;
+	justify-content: space-between;
+	width: 700px;
+}
+.modal-icon {
+	border: 2px solid rgba(255, 0, 255, 0.3);
+	width: 100px;
+	height: 160px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.icon-image {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: auto;
+}
+.icon-image img {
+	background-size: center;
+	width: auto;
+	padding: 3px;
+	height: 60px;
+	background: cover;
+}
+h5 {
+	font-size: 10px;
+}
+.icon-description {
+	font-size: 6px;
+	letter-spacing: 0px;
+	word-spacing: 3px;
+}
 
 #overlay {
-	position: fixed;
+	position: relative;
 	opacity: 0;
 	top: 0;
 	left: 0;
