@@ -63,11 +63,7 @@ Towers cost 10 gold. But don't worry each time you kill an enemy you collect the
 [] Refactoring 2 <br>
 [] Better UX <br>
 
-- [] Create multiples levels <br>
-- [] Add some screens <br>
-  ... Starting <br>
-  ... Game Over <br>
-  ... Finished game <br>
+- [] Create More levels <br>
 
 - [ ] Add sounds <br>
 

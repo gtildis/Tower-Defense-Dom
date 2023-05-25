@@ -76,7 +76,6 @@ class Game {
 			activeUpgradeTower.classList.remove("glow-button");
 			this.isActiveTower = true;
 			this.isUpgradeTower = false;
-			console.log("isActive", this.isActiveTower);
 		};
 
 		const activateUpgradeTower = () => {
@@ -84,7 +83,6 @@ class Game {
 			activeTower.classList.remove("glow-button");
 			this.isActiveTower = false;
 			this.isUpgradeTower = true;
-			console.log("isUpgradeActive", this.isActiveTower);
 		};
 
 		activeTower.addEventListener("click", activateTower);
@@ -289,7 +287,7 @@ class Game {
 	}
 	/////////////////////////////////////////////////////////////////////////////////////
 	checkIfWin(animationId) {
-		if (this.countWave === 1) {
+		if (this.countWave === 4) {
 			winDiv.style.display = "flex";
 			let currentLevel = +localStorage.getItem("levels");
 			currentLevel++;

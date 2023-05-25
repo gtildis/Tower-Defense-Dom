@@ -5,6 +5,10 @@ class GameLvlThree {
 	constructor() {
 		this.gameBackground = document.getElementById("game-background");
 		this.gameBackground.style.backgroundImage = "url('./img/game-map3.png')";
+		this.animationId; ///////
+		this.isAnimationPaused = false;
+		this.isActiveTower = true;
+		this.isUpgradeTower = false;
 
 		this.placementTilesData2D = [];
 		this.enemies = [];
@@ -67,11 +71,36 @@ class GameLvlThree {
 	}
 
 	eventListeners() {
+		const activeTower = document.querySelector("#building-simple");
+		const activeUpgradeTower = document.querySelector("#building-frost");
+		const activateTower = () => {
+			activeTower.classList.add("glow-button");
+			activeUpgradeTower.classList.remove("glow-button");
+			this.isActiveTower = true;
+			this.isUpgradeTower = false;
+		};
+		const activateUpgradeTower = () => {
+			activeUpgradeTower.classList.add("glow-button");
+			activeTower.classList.remove("glow-button");
+			this.isActiveTower = false;
+			this.isUpgradeTower = true;
+		};
+		activeTower.addEventListener("click", activateTower);
+		activeUpgradeTower.addEventListener("click", activateUpgradeTower);
+		document.addEventListener("keydown", (event) => {
+			if (event.key === "1") {
+				activateTower();
+			} else if (event.key === "2") {
+				activateUpgradeTower();
+			}
+		});
+
 		this.gameBackground.addEventListener("click", (event) => {
 			if (
 				this.activeTile &&
 				!this.activeTile.occupied &&
-				this.totalGold >= 10
+				this.totalGold >= 10 &&
+				this.isActiveTower
 			) {
 				this.buildings.push(
 					new Building({
@@ -85,6 +114,23 @@ class GameLvlThree {
 				this.buildings[this.buildings.length - 1].draw();
 				this.activeTile.occupied = true;
 				this.totalGold -= 10;
+			} else if (
+				this.activeTile &&
+				!this.activeTile.occupied &&
+				this.totalGold >= 20 &&
+				this.isUpgradeTower
+			) {
+				this.buildings.push(
+					new FrostTower({
+						position: {
+							x: this.activeTile.position.x,
+							y: this.activeTile.position.y,
+						},
+					})
+				);
+				this.buildings[this.buildings.length - 1].draw();
+				this.activeTile.occupied = true;
+				this.totalGold -= 20;
 			}
 		});
 
@@ -192,7 +238,14 @@ class GameLvlThree {
 				const distance = Math.hypot(xDifference, yDifference);
 
 				if (distance < projectile.enemy.radius + projectile.radius) {
-					projectile.enemy.health -= 20;
+					projectile.enemy.health -= projectile.damage;
+					if (projectile.isSlow && !projectile.enemy.isNotAffectedByFrost) {
+						projectile.enemy.speed *= 50 / 100;
+						setTimeout(function () {
+							projectile.enemy.speed *= 100 / 50;
+						}, 2000);
+					}
+
 					if (projectile.enemy.health <= 0) {
 						const enemyIndex = this.enemies.findIndex((enemy) => {
 							return projectile.enemy === enemy;
