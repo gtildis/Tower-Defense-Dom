@@ -33,7 +33,11 @@ You can use your keyboard keys 1 and 2 to toggle between the two towers, and pla
 
 You can see the score and hearts on the top-right and you can see which Tower is selected and ready to be build on the bottom-right.
 
+![alt text](https://github.com/gtildis/Tower-Defense-Dom/blob/main/img/screenshot-table.png "Screenshot of toggle window")
+
 ### Towers and Enemy Stats
+
+![alt text](https://github.com/gtildis/Tower-Defense-Dom/blob/main/img/Tower-and-enemy-stats.png "Screenshot of toggle window")
 
 # Objectives
 
