@@ -19,17 +19,19 @@ Protect the village! Kill the enemies!
 # How to play
 
 Try to kill the enemies before they reach the Gate of the Village.
-You can build towers to prevent the attack. Towers can be built on the available spots of the land. Try to find those spots. Each time you kill an enemy, you collect their bounty!
-
-![alt text]( "Logo Title Text 1")
+You can build towers to prevent the attack. Towers can be built on the available spots of the land. Try to find those spots. Each time you kill an enemy, you collect their bounty!<br>
+<br>
+![alt text](https://github.com/gtildis/Tower-Defense-Dom/blob/main/img/screenshot.png "Screenshot of the game")
 
 ### Bindings
 
 You can use your keyboard keys 1 and 2 to toggle between the two towers, and place them with your mouse.
 
+![alt text](https://github.com/gtildis/Tower-Defense-Dom/blob/main/img/screenshot-table-toggle.png "Screenshot of toggle window")
+
 ### Tables
 
-You can see the score and hearts on the top-right and you can see which Tower is selected and ready to be build on the bottom-right
+You can see the score and hearts on the top-right and you can see which Tower is selected and ready to be build on the bottom-right.
 
 ### Towers and Enemy Stats
 
