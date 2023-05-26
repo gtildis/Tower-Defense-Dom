@@ -37,38 +37,38 @@ You can see the score and hearts on the top-right and you can see which Tower is
 
 - [x] Project Setup <br>
 - [x] Map Creation <br>
-      [x] Pathfinding<br>
-      [x] Building Placement<br>
-      [x] Enemies and Health Bars<br>
-      [x] Waves<br>
-      [x] Game over<br>
-      [x] Resources:<br>
-      ----[x] Gold and Hearts <br>
-      ----[x] Collect gold from enemies <br>
-      [x] Sprites<br>
-      [x] Win<br>
-      [x] Refactoring<br>
+- [x] Pathfinding<br>
+- [x] Building Placement<br>
+- [x] Enemies and Health Bars<br>
+- [x] Waves<br>
+- [x] Game over<br>
+- [x] Resources:<br>
+- --- - [x] Gold and Hearts <br>
+- --- - [x] Collect gold from enemies <br>
+- [x] Sprites<br>
+- [x] Win<br>
+- [x] Refactoring<br>
 
 ### Levels
 
-----[x] Level 2<br>
-[x] Zombie Warrior<br>
-[x] Skeleton Enemy <br>
-[x] Modal window instructions<br>
-----[x] Level 3<br>
-[x] Flying Boss enemy<br>
+- ----[x] Level 2<br>
+- [x] Zombie Warrior<br>
+- [x] Skeleton Enemy <br>
+- [x] Modal window instructions<br>
+- ----[x] Level 3<br>
+- [x] Flying Boss enemy<br>
 
-[x] Launch<br>
-[x] README file<br>
+- [x] Launch<br>
+- [x] README file<br>
 
 ### Improvements
 
-[x] with and upgrade Towers <br>
-[ ] Refactoring 2 <br>
-[ ] Better UX <br>
+- [x] with and upgrade Towers <br>
+- [ ] Refactoring 2 <br>
+- [ ] Better UX <br>
 
-[ ] Create More levels <br>
+- [ ] Create More levels <br>
 
-[ ] Add sounds <br>
+- [ ] Add sounds <br>
 
-[ ] Animate Enemies better <br>
+- [ ] Animate Enemies better <br>
