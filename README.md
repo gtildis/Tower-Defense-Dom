@@ -21,6 +21,8 @@ Protect the village! Kill the enemies!
 Try to kill the enemies before they reach the Gate of the Village.
 You can build towers to prevent the attack. Towers can be built on the available spots of the land. Try to find those spots. Each time you kill an enemy, you collect their bounty!
 
+![alt text]( "Logo Title Text 1")
+
 ### Bindings
 
 You can use your keyboard keys 1 and 2 to toggle between the two towers, and place them with your mouse.
